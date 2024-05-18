@@ -13,15 +13,7 @@ const Navbar = () => {
     const [icon, setIcon] = useState(theme === "dark" ? cart_icon_dark : cart_icon);
     const [menu, setMenu] = useState("shop");
 
-    useEffect(() => {
-        if (theme === "dark") {
-            document.getElementById("nav").classList.add("dark");
-            setIcon(cart_icon_dark);
-        } else {
-            document.getElementById("nav").classList.remove("dark");
-            setIcon(cart_icon);
-        }
-    }, [theme]);
+    
 
     const toggle = () => {
         if (theme === "dark") {
@@ -32,7 +24,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className={`navbar`} id="nav">
+        <div className={`navbar sticky-top bg-${!theme}`} id="nav">
             <div className="nav-logo">
                 <Link className="nav-logo-link" to="/">
                     <img src={logo} alt="ShopNex Logo" style={{ marginRight: '10px' }} />
